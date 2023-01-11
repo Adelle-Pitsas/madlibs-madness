@@ -1,7 +1,7 @@
 import React from "react";
 import './Input.css'
 
-const Input = ({ placeholder }) => {
+const Input = ({ placeholder, id }) => {
   return (
    <input
     className="input"

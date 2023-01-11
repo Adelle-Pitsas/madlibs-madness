@@ -1,9 +1,10 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { fetchData } from '../apiCalls';
 import { cleanData } from '../util'
 import MadLibEntry from '../MadLibEntry/MadLibEntry';
+import Options from '../Options/Options';
 
 function App() {
 
@@ -33,7 +34,9 @@ function App() {
         <h1>MadLibs</h1>
       </header>
       <Routes>
-        <Route path='/' element={<MadLibEntry madLib={madLib}/>} />
+        <Route path='/' element={<Options />}
+        />
+        <Route path='/play' element={<MadLibEntry madLib={madLib}/>} />
       </Routes>
     </div>
   )
