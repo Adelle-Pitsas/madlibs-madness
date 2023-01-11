@@ -1,15 +1,21 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 // import { Routes, Route } from 'react-router-dom';
-// import { fetchData } from '../apiCalls';
+import { fetchData } from '../apiCalls';
+import { cleanData } from '../util'
 
 function App() {
 
   const [ madLib, setMadLib ] = useState({});
 
   useEffect(() => {
-    // fetchData()
-
+    fetchData()
+    .then(data => {
+      setMadLib(cleanData(data))
+    })
+    .catch(response => {
+      console.log(response.status)
+    }) 
   }, [])
 
 
