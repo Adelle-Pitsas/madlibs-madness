@@ -1,10 +1,12 @@
 import React from "react";
+import './MadLibResult.css'
 
-const MadLibResult = () => {
+const MadLibResult = ({ result }) => {
   
   return (
-    <div>
-      <h1>testing</h1>
+    <div className="result-container">
+      <h3>{result}</h3>
+      <button className="favorite-button">😂</button>
     </div>
   )
 }
