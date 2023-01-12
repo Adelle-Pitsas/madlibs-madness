@@ -3,7 +3,7 @@ import Form from "../Form/Form"
 import MadLibResult from "../MadLibResult/MadLibResult";
 import './MadLibEntry.css'
 
-const MadLibEntry = ({ madLib }) => {
+const MadLibEntry = ({ madLib, addToFavorites }) => {
   
 
   const [result, setResult] = useState("");
@@ -29,7 +29,7 @@ const MadLibEntry = ({ madLib }) => {
   return (
     <div className="play-container">
       <Form wordsNeeded={madLib.wordsNeeded} partsOfSpeech={madLib.partsOfSpeech} getResult={getResult}/>
-      {displayResult && <MadLibResult result={result}/>}
+      {displayResult && <MadLibResult result={result} addToFavorites={addToFavorites}/>}
     </div>
   )
 }

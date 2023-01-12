@@ -1,6 +1,6 @@
 import React from "react";
 
-const FavCard = ({ madlib, key}) => {
+const FavCard = ({ madlib }) => {
   return (
     <h4>{madlib}</h4>
   )

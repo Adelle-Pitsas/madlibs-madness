@@ -1,18 +1,24 @@
-import React from "react";
-import FavCard from "../FavCard/FavCard";
+import React, { useState, useEffect } from "react";
+import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
+import { fetchFavorites } from '../apiCalls';
 
 
-const Favorites = ({ favorites }) => {
-  const favoriteCards = favorites.map((favorite, index) => {
-    return <FavCard 
-      madlib={favorite}
-      key={index}
-    />
-  })
+const Favorites = () => {
 
+  const [favorites, setFavorites] = useState([])
+
+  useEffect(() => {
+    fetchFavorites()
+    .then((data) => {
+     console.log(data)
+     setFavorites(data)
+    })
+  }, [])
+
+  
   return (
     <div>
-      {favoriteCards}
+      <FavoriteContainer favorites={favorites}/>
     </div>
   )
 }
