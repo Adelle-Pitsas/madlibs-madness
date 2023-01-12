@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import Input from "../Input/Input";
 import './Form.css'
 
-const Form = ( {wordsNeeded, updateDisplay, partsOfSpeech} ) => {
+const Form = ( {wordsNeeded, updateDisplay, partsOfSpeech, getResult} ) => {
   
   const [userInputs, setUserInputs] = useState(wordsNeeded.reduce((acc, element) => {
       acc[element] = ""
@@ -11,11 +11,10 @@ const Form = ( {wordsNeeded, updateDisplay, partsOfSpeech} ) => {
 
   const handleWord = (event, input) => {
     setUserInputs({...userInputs, [event.target.name]: input})
-    console.log(userInputs)
   }
 
-  const submitWords = (event) => {
-    console.log(userInputs)
+  const sendWords = () => {
+    getResult(userInputs)
     updateDisplay()
   }
   
@@ -29,7 +28,7 @@ const Form = ( {wordsNeeded, updateDisplay, partsOfSpeech} ) => {
       <div className="inputs">
         {inputs}
       </div>
-      <button className="submit" onClick={(event) => submitWords(event)}>Create your Mad Lib</button>
+      <button className="submit" onClick={() => sendWords()}>Create your Mad Lib</button>
     </div>
   )
 }

@@ -12,12 +12,23 @@ const MadLibEntry = ({ madLib }) => {
   const updateDisplay = () => {
     setDisplayResult(true)
   }
+
+  const getResult = (userInputs) => {
+    const keys = Object.keys(userInputs)
+    let str = madLib.parsedQuote
+    keys.forEach(key => {
+      str = str.replaceAll(key, userInputs[key])
+    })
+    console.log(str)
+    setResult(str)
+    updateDisplay()
+  }
   
 
   return (
-    <div>
-      <Form wordsNeeded={madLib.wordsNeeded} partsOfSpeech={madLib.partsOfSpeech} updateDisplay={updateDisplay}/>
-      {displayResult && <MadLibResult />}
+    <div className="play-container">
+      <Form wordsNeeded={madLib.wordsNeeded} partsOfSpeech={madLib.partsOfSpeech} getResult={getResult}/>
+      {displayResult && <MadLibResult result={result}/>}
     </div>
   )
 }

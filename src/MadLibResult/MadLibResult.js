@@ -1,10 +1,10 @@
 import React from "react";
 
-const MadLibResult = () => {
+const MadLibResult = ({ result }) => {
   
   return (
-    <div>
-      <h1>testing</h1>
+    <div className="result-container">
+      <h3>{result}</h3>
     </div>
   )
 }
