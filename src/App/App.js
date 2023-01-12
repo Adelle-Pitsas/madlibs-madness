@@ -5,6 +5,7 @@ import { fetchData } from '../apiCalls';
 import { cleanData } from '../util'
 import MadLibEntry from '../MadLibEntry/MadLibEntry';
 import Options from '../Options/Options';
+import Favorites from '../Favorites/Favorites';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     wordsNeeded: [],
     partsOfSpeech: []
   });
+  const [ favorites, setFavorites ] = useState(["Never let the fear of sitting keep you from eating the world - Babe Ruth"])
 
   useEffect(() => {
     fetchData()
@@ -37,6 +39,7 @@ function App() {
         <Route path='/' element={<Options />}
         />
         <Route path='/play' element={<MadLibEntry madLib={madLib}/>} />
+        <Route path='/favorites' element={<Favorites favorites={favorites}/>} />
       </Routes>
     </div>
   )
