@@ -9,3 +9,11 @@
   margin-top: 5px;
   width: fit-content;
 }
+
+.disabled-btn {
+  pointer-events: none;
+  background-color: #f8f8f8;
+  color: #696969;
+  box-shadow: none;
+  border: .5px solid #d0d0d0
+}

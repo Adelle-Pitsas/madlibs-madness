@@ -8,6 +8,7 @@ const Form = ( {wordsNeeded, updateDisplay, partsOfSpeech, getResult} ) => {
       acc[element] = ""
       return acc
     }, {}))
+  const [ isSubmitted, setIsSubmitted ] = useState(false)
 
   const handleWord = (event, input) => {
     setUserInputs({...userInputs, [event.target.name]: input})
@@ -15,7 +16,7 @@ const Form = ( {wordsNeeded, updateDisplay, partsOfSpeech, getResult} ) => {
 
   const sendWords = () => {
     getResult(userInputs)
-    updateDisplay()
+    setIsSubmitted(true)
   }
   
   const inputs = partsOfSpeech.map((element, index) => {
@@ -28,7 +29,8 @@ const Form = ( {wordsNeeded, updateDisplay, partsOfSpeech, getResult} ) => {
       <div className="inputs">
         {inputs}
       </div>
-      <button className="submit" onClick={() => sendWords()}>Create your Mad Lib</button>
+      <button 
+      className={isSubmitted ? "submit disabled-btn" : "submit"} onClick={() => sendWords()}>Create your Mad Lib</button>
     </div>
   )
 }

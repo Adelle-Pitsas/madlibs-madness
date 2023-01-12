@@ -2,3 +2,13 @@
   width: 60vw;
   text-align: center;
 }
+
+.favorite-button {
+  background-color: white;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: none;
+}

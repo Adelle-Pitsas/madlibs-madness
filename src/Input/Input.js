@@ -4,6 +4,7 @@ import './Input.css'
 const Input = ({ placeholder, matchingWord, id, handleWord}) => {
 
   const[ userInput, setUserInput ] = useState('')
+  const[ submit, setSubmit ] = useState(false)
 
   const updateState = (event) => {
     setUserInput(event.target.value)
@@ -11,6 +12,7 @@ const Input = ({ placeholder, matchingWord, id, handleWord}) => {
 
   const submitWord = (event) => {
     handleWord(event, userInput)
+    setSubmit(true)
   }
 
   return (
@@ -19,12 +21,13 @@ const Input = ({ placeholder, matchingWord, id, handleWord}) => {
       name={matchingWord}
       >
       <input
-       type={'text'}
-       placeholder={placeholder}
-       value={userInput}
-       onChange={(event) => updateState(event)}
+        disabled={submit ? "disabled" : null}
+        type={'text'}
+        placeholder={placeholder}
+        value={userInput}
+        onChange={(event) => updateState(event)}
       />
-      <button className="submit-word-btn" name={matchingWord} onClick={(event) => {submitWord(event)}}>Submit Word</button>
+      <button className={submit ? "submit-word-btn disabled-btn": "submit-word-btn"} name={matchingWord} onClick={(event) => {submitWord(event)}}>Submit Word</button>
     </div>
   )
 }

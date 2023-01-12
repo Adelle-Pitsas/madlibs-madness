@@ -7,11 +7,22 @@
 }
 
 .submit {
-  width: 200px
+  margin-top: 40px;
+  width: 200px;
+  cursor: pointer
 }
 
 .inputs {
   display: flex;
   justify-content: center;
   width: 90%
+}
+
+.disabled-btn {
+  pointer-events: none;
+  cursor: default;
+  background-color: #f8f8f8;
+  color: #696969;
+  box-shadow: none;
+  border: .5px solid #d0d0d0
 }

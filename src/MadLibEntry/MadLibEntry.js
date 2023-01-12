@@ -14,6 +14,7 @@ const MadLibEntry = ({ madLib }) => {
   }
 
   const getResult = (userInputs) => {
+    console.log(userInputs)
     const keys = Object.keys(userInputs)
     let str = madLib.parsedQuote
     keys.forEach(key => {
