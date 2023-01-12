@@ -1,33 +1,22 @@
-import React, {useState} from "react";
-import Input from "../Input/Input";
+import React, { useState, useEffect } from "react";
+import Form from "../Form/Form"
 import MadLibResult from "../MadLibResult/MadLibResult";
 import './MadLibEntry.css'
 
 const MadLibEntry = ({ madLib }) => {
+  
+
   const [result, setResult] = useState("");
-  const [userInputs, setUserInputs] = useState([])
   const [displayResult, setDisplayResult] = useState(false)
-
-  // const handleChange = () => {
-  //   setUserInputs
-  // }
-
-  const submitWords = (event) => {
-    console.log("click")
+  
+  const updateDisplay = () => {
     setDisplayResult(true)
   }
   
-  const inputs = madLib.partsOfSpeech.map((element, index) => {
-    return <Input placeholder={element} id={index} key={index} />
-  })
-  
 
   return (
-    <div className="mad-lib-entry">
-      <div className="inputs">
-      {inputs}
-      </div>
-      <button className="submit" onClick={(event) => submitWords(event)}>Create your Mad Lib</button>
+    <div>
+      <Form wordsNeeded={madLib.wordsNeeded} partsOfSpeech={madLib.partsOfSpeech} updateDisplay={updateDisplay}/>
       {displayResult && <MadLibResult />}
     </div>
   )
