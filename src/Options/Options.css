@@ -1,0 +1,13 @@
+.home-page-options {
+  display: flex;
+  width: 90vw;
+  height: 90vh;
+  justify-content: space-around;
+}
+
+.option {
+  border: 3px solid black;
+  width: 50%;
+  height: 25%;
+  text-align: center;
+}
