@@ -5,7 +5,7 @@ import './MadLibEntry.css'
 
 const MadLibEntry = ({ madLib, addToFavorites }) => {
   
-
+console.log(madLib.wordsNeeded)
   const [result, setResult] = useState({});
   const [displayResult, setDisplayResult] = useState(false)
   
@@ -15,8 +15,10 @@ const MadLibEntry = ({ madLib, addToFavorites }) => {
 
   const getResult = (userInputs) => {
     console.log(userInputs)
+    console.log(madLib)
     const keys = Object.keys(userInputs)
     let str = madLib.parsedQuote
+    console.log(str)
     keys.forEach(key => {
       str = str.replaceAll(key, userInputs[key])
     })

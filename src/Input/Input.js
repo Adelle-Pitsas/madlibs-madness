@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import './Input.css'
 
-const Input = ({ placeholder, matchingWord, id, handleWord}) => {
+const Input = ({ placeholder, wordNeeded, id, handleWord}) => {
 
   const[ userInput, setUserInput ] = useState('')
   const[ submit, setSubmit ] = useState(false)
@@ -18,7 +18,7 @@ const Input = ({ placeholder, matchingWord, id, handleWord}) => {
   return (
     <div 
       className="input"
-      name={matchingWord}
+      name={wordNeeded}
       >
       <input
         disabled={submit ? "disabled" : null}
@@ -27,7 +27,7 @@ const Input = ({ placeholder, matchingWord, id, handleWord}) => {
         value={userInput}
         onChange={(event) => updateState(event)}
       />
-      <button className={submit ? "submit-word-btn disabled-btn": "submit-word-btn"} name={matchingWord} onClick={(event) => {submitWord(event)}}>Submit Word</button>
+      <button className={submit ? "submit-word-btn disabled-btn": "submit-word-btn"} name={wordNeeded} onClick={(event) => {submitWord(event)}}>Submit Word</button>
     </div>
   )
 }
