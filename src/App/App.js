@@ -17,9 +17,9 @@ function App() {
     wordsNeeded: [],
     partsOfSpeech: []
   });
-  const [ favorites, setFavorites ] = useState(["Never let the fear of sitting keep you from eating the world - Babe Ruth"])
 
   const addToFavorites = (madLib) => {
+    console.log('posting data...')
     postData(madLib)
   }
 
@@ -44,7 +44,7 @@ function App() {
         <Route path='/' element={<Options />}
         />
         <Route path='/play' element={<MadLibEntry madLib={madLib} addToFavorites={addToFavorites}/>} />
-        <Route path='/favorites' element={<Favorites favorites={favorites}/>} />
+        <Route path='/favorites' element={<Favorites />} />
       </Routes>
     </div>
   )

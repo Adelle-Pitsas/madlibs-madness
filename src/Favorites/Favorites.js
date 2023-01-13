@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
-import { fetchFavorites } from '../apiCalls';
+import { fetchFavorites, deleteFavorite } from '../apiCalls';
 
 
 const Favorites = () => {
 
   const [favorites, setFavorites] = useState([])
+
+  const removeFavorite = (id) => {
+    deleteFavorite(id)
+    .then(data => setFavorites(data))
+  }
+
 
   useEffect(() => {
     fetchFavorites()
@@ -18,7 +24,7 @@ const Favorites = () => {
   
   return (
     <div>
-      <FavoriteContainer favorites={favorites}/>
+      <FavoriteContainer favorites={favorites} removeFavorite={removeFavorite}/>
     </div>
   )
 }

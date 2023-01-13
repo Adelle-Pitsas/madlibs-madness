@@ -6,7 +6,7 @@ import './MadLibEntry.css'
 const MadLibEntry = ({ madLib, addToFavorites }) => {
   
 
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState({});
   const [displayResult, setDisplayResult] = useState(false)
   
   const updateDisplay = () => {
@@ -21,15 +21,22 @@ const MadLibEntry = ({ madLib, addToFavorites }) => {
       str = str.replaceAll(key, userInputs[key])
     })
     console.log(str)
-    setResult(str)
+    setResult({result: str, isFavorited: false})
     updateDisplay()
   }
   
+  const favoriteResult = () => {
+    setResult({...result, isFavorited: true})
+  }
+
+  useEffect(() => {
+    result.isFavorited && addToFavorites(result)
+  }, [result.isFavorited])
 
   return (
     <div className="play-container">
       <Form wordsNeeded={madLib.wordsNeeded} partsOfSpeech={madLib.partsOfSpeech} getResult={getResult}/>
-      {displayResult && <MadLibResult result={result} addToFavorites={addToFavorites}/>}
+      {displayResult && <MadLibResult result={result} favoriteResult={favoriteResult}/>}
     </div>
   )
 }
