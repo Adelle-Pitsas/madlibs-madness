@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <header className='header'>
-        <h1>MadLibs</h1>
+        <h1>Mobile MadLibs</h1>
         <div className='nav-button-area'>{pathname !== '/' ? displayNavButton : null}</div>
       </header>
       <Routes>
