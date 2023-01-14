@@ -5,7 +5,6 @@ import './MadLibEntry.css'
 
 const MadLibEntry = ({ madLib, addToFavorites }) => {
   
-console.log(madLib.wordsNeeded)
   const [result, setResult] = useState({});
   const [displayResult, setDisplayResult] = useState(false)
   
