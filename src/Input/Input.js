@@ -27,14 +27,14 @@ const Input = ({ placeholder, wordNeeded, id, handleWord}) => {
       name={wordNeeded}
       >
       <input
-        disabled={submit ? "disabled" : null}
+        disabled={submit && "disabled"}
         type={'text'}
         placeholder={placeholder}
         value={userInput}
         onChange={(event) => updateState(event)}
       />
       {userError && <p className="input-error">Please enter your word</p>}
-      <button className={submit ? "submit-word-btn disabled-btn": "submit-word-btn"} name={wordNeeded} onClick={(event) => {submitWord(event)}}>Submit Word</button>
+       {!submit && <button className="submit-word-btn" name={wordNeeded} onClick={(event) => {submitWord(event)}}>Submit Word</button>}
     </div>
   )
 }

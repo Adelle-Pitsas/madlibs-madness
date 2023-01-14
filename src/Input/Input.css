@@ -1,19 +1,20 @@
-.input {
+input {
   margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 5px;
+  border: none;
+  padding: 3px;
 }
 
 .submit-word-btn  {
   margin-top: 5px;
   width: fit-content;
-}
-
-.disabled-btn {
-  pointer-events: none;
-  background-color: #f8f8f8;
-  color: #696969;
+  background-color: #046865;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
   box-shadow: none;
-  border: .5px solid #d0d0d0
+  border: none;
 }

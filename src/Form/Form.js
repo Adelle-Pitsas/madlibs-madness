@@ -32,13 +32,16 @@ const Form = ( {wordsNeeded, partsOfSpeech, getResult} ) => {
     return <Input placeholder={element} wordNeeded={wordNeeded} id={index} key={index} handleWord={handleWord}/>
   })
 
+  const button = readyToSubmit && <button 
+  className={isSubmitted ? "submit disabled-btn" : "submit"} onClick={() => sendWords()}>Create your Mad Lib</button>
+
   return(
     <div className="mad-lib-entry">
+      <h3>Play!</h3>
       <div className="inputs">
         {inputs}
       </div>
-      {readyToSubmit && <button 
-      className={isSubmitted ? "submit disabled-btn" : "submit"} onClick={() => sendWords()}>Create your Mad Lib</button>}
+      {!isSubmitted && button}
     </div>
   )
 }
