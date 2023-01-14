@@ -1,0 +1,9 @@
+.favorited {
+  font-size: 40px;
+  fill: rgb(246, 226, 0);
+}
+
+.unfavorited {
+  font-size: 40px;
+  fill: rgb(95, 95, 95);
+}
