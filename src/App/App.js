@@ -1,8 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { fetchData, postData, fetchFavorites } from '../apiCalls';
-import { cleanData } from '../util'
 import MadLibEntry from '../MadLibEntry/MadLibEntry';
 import Options from '../Options/Options';
 import Favorites from '../Favorites/Favorites';
@@ -10,40 +9,26 @@ import Favorites from '../Favorites/Favorites';
 
 function App() {
 
-  const [ madLib, setMadLib ] = useState({
-    id: "",
-    quote: "",
-    parsedQuote: "",
-    wordsNeeded: [],
-    partsOfSpeech: []
-  });
-
   const addToFavorites = (madLib) => {
     console.log('posting data...')
     postData(madLib)
   }
 
-  useEffect(() => {
-    fetchData()
-    .then(data => {
-      setMadLib(cleanData(data))
-      console.log(madLib)
-    })
-    .catch(response => {
-      console.log(response.status)
-    }) 
-  }, [])
+  const { pathname } = useLocation()
 
-
+  const displayNavButton = pathname === '/play' ? <Link to='/favorites' > <button className='nav-button'>See Favorites</button></Link> : <Link to='/'> <button className='nav-button'>Home</button></Link>
+  
+  
   return (
     <div className="App">
-      <header>
-        <h1>MadLibs</h1>
+      <header className='header'>
+        <h1>Mobile MadLibs</h1>
+        <div className='nav-button-area'>{pathname !== '/' ? displayNavButton : null}</div>
       </header>
       <Routes>
         <Route path='/' element={<Options />}
         />
-        <Route path='/play' element={<MadLibEntry madLib={madLib} addToFavorites={addToFavorites}/>} />
+        <Route path='/play' element={<MadLibEntry addToFavorites={addToFavorites}/>} />
         <Route path='/favorites' element={<Favorites />} />
       </Routes>
     </div>

@@ -5,20 +5,60 @@
   align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  height: 25%;
+  width: 100vw;
+  background-color: #21A0A0;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
+
+h1 {
+  margin-left: 12%;
+  width: 80%;
+  padding: 1%;
+  left: 55%;
+}
+
+.nav-button-area {
+  width: 10%;
+  margin-right: 2%;
+}
+
+.nav-button {
+  background-color: #ffbf69;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 9px;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+@media screen and (max-width: 730px) {
+  .header {
+    flex-direction: column;
+  }
+
+  h1 {
+    margin-left: 0;
+    padding: 0
+  }
+
+  .nav-button-area {
+    margin-right: 0;
+    margin-bottom: 2%;
+    width: 20%
+  }
+
+}
+
+
 

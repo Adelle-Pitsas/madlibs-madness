@@ -1,5 +1,6 @@
 import React from "react";
 import FavCard from "../FavCard/FavCard";
+import './FavoriteContainer.css'
 
 
 const FavoriteContainer = ({ favorites, removeFavorite }) => {
@@ -17,7 +18,7 @@ const FavoriteContainer = ({ favorites, removeFavorite }) => {
   })
 
   return (
-    <div>
+    <div className="card-container">
       {favoriteCards}
     </div>
   )

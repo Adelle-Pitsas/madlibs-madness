@@ -2,21 +2,42 @@ import React, { useState, useEffect } from "react";
 import Form from "../Form/Form"
 import MadLibResult from "../MadLibResult/MadLibResult";
 import './MadLibEntry.css'
+import { fetchData } from '../apiCalls';
+import { cleanData } from '../util'
 
-const MadLibEntry = ({ madLib, addToFavorites }) => {
+const MadLibEntry = ({ addToFavorites }) => {
   
-
+  const [ madLib, setMadLib ] = useState({
+    id: "",
+    quote: "",
+    parsedQuote: "",
+    wordsNeeded: [],
+    partsOfSpeech: []
+  });
   const [result, setResult] = useState({});
   const [displayResult, setDisplayResult] = useState(false)
   
+
+  useEffect(() => {
+    fetchData()
+    .then(data => {
+      setMadLib(cleanData(data))
+    })
+    .catch(response => {
+      console.log(response.status)
+    }) 
+  }, [])
+
   const updateDisplay = () => {
     setDisplayResult(true)
   }
 
   const getResult = (userInputs) => {
     console.log(userInputs)
+    console.log(madLib)
     const keys = Object.keys(userInputs)
     let str = madLib.parsedQuote
+    console.log(str)
     keys.forEach(key => {
       str = str.replaceAll(key, userInputs[key])
     })

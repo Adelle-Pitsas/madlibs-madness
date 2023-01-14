@@ -1,14 +1,38 @@
 .result-container {
   width: 60vw;
   text-align: center;
+  border: 4px solid #814cad;
+  border-radius: 15px;
+  background-color: white;
+  margin-top: 8%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .favorite-button {
   background-color: rgba(255, 255, 255, 0);
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   box-shadow: none;
   padding: 5px;
+}
+
+
+.favorited {
+  pointer-events: none;
+  cursor: default;
+  font-size: 40px;
+  fill: rgb(246, 226, 0);
+}
+
+.unfavorited {
+  cursor: pointer;
+  font-size: 40px;
+  fill: rgb(95, 95, 95);
+}
+
+.unfavorited:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
 }
 

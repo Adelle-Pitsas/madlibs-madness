@@ -1,6 +1,6 @@
 import React from "react";
 import './MadLibResult.css';
-import '../Smile/Smile.css'
+// import '../Smile/Smile.css'
 import { FaSmileBeam } from 'react-icons/fa'
 
 const MadLibResult = ({ result, favoriteResult }) => {
