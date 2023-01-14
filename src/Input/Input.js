@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import './Input.css'
 
 const Input = ({ placeholder, wordNeeded, id, handleWord}) => {

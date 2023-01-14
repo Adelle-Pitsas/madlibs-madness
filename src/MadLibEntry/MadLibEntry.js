@@ -19,22 +19,27 @@ const MadLibEntry = ({ addToFavorites }) => {
   
 
   useEffect(() => {
+    getNewMadLib()
+  }, [])
+
+  const getNewMadLib = () => {
+    console.log(result)
     fetchData()
     .then(data => {
       setMadLib(cleanData(data))
+      setDisplayResult(false)
     })
     .catch(response => {
       console.log(response.status)
     }) 
-  }, [])
+    
+  }
 
   const updateDisplay = () => {
     setDisplayResult(true)
   }
 
   const getResult = (userInputs) => {
-    console.log(userInputs)
-    console.log(madLib)
     const keys = Object.keys(userInputs)
     let str = madLib.parsedQuote
     console.log(str)
@@ -56,7 +61,10 @@ const MadLibEntry = ({ addToFavorites }) => {
 
   return (
     <div className="play-container">
-      <Form wordsNeeded={madLib.wordsNeeded} partsOfSpeech={madLib.partsOfSpeech} getResult={getResult}/>
+      <div className="new-madlib-button-container">
+        <button onClick={() => getNewMadLib()} className="new-madlib-button">New MadLib</button>
+      </div>
+      <Form key={Date.now()} wordsNeeded={madLib.wordsNeeded} partsOfSpeech={madLib.partsOfSpeech} getResult={getResult} getNewMadLib={getNewMadLib}/>
       {displayResult && <MadLibResult result={result} favoriteResult={favoriteResult}/>}
     </div>
   )

@@ -1,6 +1,6 @@
 export const cleanData = (data) => {
   const randomIndex = getRandomIndex(data.madlibs.length)
-  return data.madlibs[17]
+  return data.madlibs[randomIndex]
 }
 
 const getRandomIndex = (length) => {

@@ -2,11 +2,11 @@ import React, { Component, useState, useEffect } from "react";
 import Input from "../Input/Input";
 import './Form.css'
 
-const Form = ( {wordsNeeded, partsOfSpeech, getResult} ) => {
-  const [userInputs, setUserInputs] = useState(wordsNeeded.reduce((acc, element) => {
-      acc[element] = ""
-      return acc
-    }, {}))
+const Form = ({ wordsNeeded, partsOfSpeech, getResult }) => {
+
+  console.log(partsOfSpeech)
+
+  const [userInputs, setUserInputs] = useState({})
   const [readyToSubmit, setReadyToSubmit ] = useState(false)
   const [ isSubmitted, setIsSubmitted ] = useState(false)
   const [ updatedWords, setUpdatedWords ] = useState([])
@@ -15,6 +15,11 @@ const Form = ( {wordsNeeded, partsOfSpeech, getResult} ) => {
     setUserInputs({...userInputs, [event.target.name]: input})
     setUpdatedWords([...updatedWords, event.target.name])
   }
+
+  const inputs = partsOfSpeech.map((element, index) => {
+    const wordNeeded = wordsNeeded[index]
+    return <Input placeholder={element} wordNeeded={wordNeeded} id={index} key={index} handleWord={handleWord}/>
+  })
 
   const sendWords = () => {
     getResult(userInputs)
@@ -27,10 +32,7 @@ const Form = ( {wordsNeeded, partsOfSpeech, getResult} ) => {
    }
   }, [updatedWords])
   
-  const inputs = partsOfSpeech.map((element, index) => {
-    const wordNeeded = wordsNeeded[index]
-    return <Input placeholder={element} wordNeeded={wordNeeded} id={index} key={index} handleWord={handleWord}/>
-  })
+  
 
   const button = readyToSubmit && <button 
   className={isSubmitted ? "submit disabled-btn" : "submit"} onClick={() => sendWords()}>Create your Mad Lib</button>
