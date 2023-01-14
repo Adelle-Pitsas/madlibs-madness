@@ -1,6 +1,11 @@
 .result-container {
   width: 60vw;
   text-align: center;
+  border: 4px solid #814cad;
+  border-radius: 15px;
+  background-color: white;
+  margin-top: 8%;
+  box-shadow: 
 }
 
 .favorite-button {
