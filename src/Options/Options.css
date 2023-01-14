@@ -3,11 +3,34 @@
   width: 90vw;
   height: 90vh;
   justify-content: space-around;
+  align-items: center;
 }
 
 .option {
   border: 3px solid black;
-  width: 50%;
-  height: 25%;
+  width: 45%;
+  height: 85%;
   text-align: center;
+  text-decoration: none;
+  color: black;
+  transition: all 0.5s;
+  border-radius: 15px;
+}
+
+.option:hover {
+  transform: scale(1.1);
+}
+
+.play-link {
+  background-color: white;
+}
+
+.favorites-link {
+  background-color: #f0b900;
+}
+
+.play-image,
+.fav-image {
+  width: 100%;
+  border-radius: 15px 15px 0 0
 }

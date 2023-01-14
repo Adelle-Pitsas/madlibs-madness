@@ -27,7 +27,6 @@ function App() {
     fetchData()
     .then(data => {
       setMadLib(cleanData(data))
-      console.log(madLib)
     })
     .catch(response => {
       console.log(response.status)
@@ -37,7 +36,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
+      <header className='header'>
         <h1>MadLibs</h1>
       </header>
       <Routes>
