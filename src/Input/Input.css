@@ -5,7 +5,7 @@ input {
   align-items: center;
   border-radius: 5px;
   border: none;
-  padding: 3px;
+  padding: 5px;
 }
 
 .submit-word-btn  {
@@ -17,4 +17,10 @@ input {
   padding: 5px;
   box-shadow: none;
   border: none;
+}
+
+@media screen and (max-width: 1050px) {
+  .input {
+    display: flex;
+  }
 }

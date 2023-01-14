@@ -17,6 +17,9 @@
   color: black;
   transition: all 0.5s;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .option:hover {
@@ -36,4 +39,25 @@
 .fav-image {
   width: 100%;
   border-radius: 15px 15px 0 0
+}
+
+@media screen and (max-width: 800px) {
+  .home-page-options {
+    flex-direction: column;
+    margin: 2%;
+  }
+
+  .option {
+    width: 90%;
+    min-width: 200px;
+    height: 45%;
+  }
+
+  .play-image,
+  .fav-image {
+    /* height: 50%; */
+    width: 50%;
+    margin: 20px;
+  }
+
 }
