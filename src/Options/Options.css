@@ -9,6 +9,8 @@
 .option {
   border: 3px solid black;
   width: 45%;
+  max-width: 500px;
+  min-width: 375px;
   height: 85%;
   text-align: center;
   text-decoration: none;
@@ -23,6 +25,7 @@
 
 .play-link {
   background-color: white;
+  white-space: normal;
 }
 
 .favorites-link {

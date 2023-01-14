@@ -1,5 +1,6 @@
 import React from "react";
 import '../Smile/Smile.css'
+import './FavCard.css'
 import { FaSmileBeam } from 'react-icons/fa'
 
 
