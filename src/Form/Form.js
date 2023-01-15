@@ -1,5 +1,8 @@
 import React, { Component, useState, useEffect } from "react";
 import Input from "../Input/Input";
+import PropTypes from 'prop-types';
+
+
 import './Form.css'
 
 const Form = ({ wordsNeeded, partsOfSpeech, getResult }) => {
@@ -50,3 +53,8 @@ const Form = ({ wordsNeeded, partsOfSpeech, getResult }) => {
 
 export default Form
 
+Form.propTypes = {
+  wordsNeeded: PropTypes.arrayOf(PropTypes.string).isRequired,
+  partsOfSpeech: PropTypes.arrayOf(PropTypes.string).isRequired,
+  getResult: PropTypes.func.isRequired
+}

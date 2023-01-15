@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
+
 import './Input.css'
 
-const Input = ({ placeholder, wordNeeded, id, handleWord}) => {
+const Input = ({ placeholder, wordNeeded, handleWord}) => {
 
   const[ userInput, setUserInput ] = useState('')
   const [ userError, setUserError] = useState(false)
@@ -40,3 +42,9 @@ const Input = ({ placeholder, wordNeeded, id, handleWord}) => {
 }
 
 export default Input
+
+Input.propTypes = {
+  placeholder: PropTypes.string.isRequired,
+  wordNeeded: PropTypes.string.isRequired,
+  handleWord: PropTypes.func.isRequired
+}

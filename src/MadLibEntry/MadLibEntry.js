@@ -4,6 +4,8 @@ import MadLibResult from "../MadLibResult/MadLibResult";
 import './MadLibEntry.css'
 import { fetchData } from '../apiCalls';
 import { cleanData } from '../util'
+import PropTypes from 'prop-types';
+
 
 const MadLibEntry = ({ addToFavorites }) => {
   
@@ -71,3 +73,7 @@ const MadLibEntry = ({ addToFavorites }) => {
 }
 
 export default MadLibEntry
+
+MadLibEntry.propTypes = {
+  addToFavorites: PropTypes.func.isRequired
+}
