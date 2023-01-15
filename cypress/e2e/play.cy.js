@@ -75,3 +75,76 @@ describe('play view', () => {
     cy.get('.submit-word-btn').eq(2).should('contain', "Submit Word")
   })
 })
+
+describe('A failed GET request for a madlib', () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:3000")
+    cy.intercept(
+      "http://localhost:3001/madlibs",
+      {
+        method: "GET",
+      },
+      {
+        statusCode: 500,
+      }
+    );
+    cy.get('.play-link').click()
+  })
+
+  it("should display an error pop-up", () => {
+    cy.get('.overlay').should('be.visible')
+    cy.get('.error-container').should('be.visible')
+    .and('contain', 'Oops! Something went wrong!')
+    .and('contain', 'Please try again later')
+    .within(() => {
+      cy.get('.dismiss-btn').should('be.visible')
+    })
+  })
+
+  it('should allow the user to close the popup', () => {
+    cy.get('.dismiss-btn').click()
+    cy.get('.overlay').should('not.exist')
+    cy.get('.error-container').should('not.exist')
+  })
+})
+
+describe('A failed POST request for a madlib', () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:3000")
+    cy.intercept('http://localhost:3001/madlibs', {
+      method: "GET",
+      fixture: '../fixtures/madlib.json'
+    })
+    cy.get('.play-link').click()
+    cy.get('input').eq(0).type("stars")
+    cy.get('.submit-word-btn').eq(0).click()
+    cy.get('input').eq(1).type("flying")
+    cy.get('.submit-word-btn').eq(0).click()
+    cy.get('.submit').click()
+    cy.intercept(
+      "http://localhost:3001/madlibs/favorites",
+      {
+        method: "POST",
+      },
+      {
+        statusCode: 500,
+      });
+      cy.get('.unfavorited').click()
+  })
+
+  it("should display an error pop-up", () => {
+    cy.get('.overlay').should('be.visible')
+    cy.get('.error-container').should('be.visible')
+    .and('contain', 'Oops! Something went wrong!')
+    .and('contain', 'Please try again later')
+    .within(() => {
+      cy.get('.dismiss-btn').should('be.visible')
+    })
+  })
+
+  it('should allow the user to close the popup', () => {
+    cy.get('.dismiss-btn').click()
+    cy.get('.overlay').should('not.exist')
+    cy.get('.error-container').should('not.exist')
+  })
+})
