@@ -19,7 +19,7 @@ const MadLibEntry = ({ addToFavorites }) => {
   
 
   useEffect(() => {
-    getNewMadLib()
+      getNewMadLib()
   }, [])
 
   const getNewMadLib = () => {
@@ -64,7 +64,7 @@ const MadLibEntry = ({ addToFavorites }) => {
       <div className="new-madlib-button-container">
         <button onClick={() => getNewMadLib()} className="new-madlib-button">New MadLib</button>
       </div>
-      <Form key={Date.now()} wordsNeeded={madLib.wordsNeeded} partsOfSpeech={madLib.partsOfSpeech} getResult={getResult} getNewMadLib={getNewMadLib}/>
+      <Form key={madLib.id} wordsNeeded={madLib.wordsNeeded} partsOfSpeech={madLib.partsOfSpeech} getResult={getResult} getNewMadLib={getNewMadLib}/>
       {displayResult && <MadLibResult result={result} favoriteResult={favoriteResult}/>}
     </div>
   )
