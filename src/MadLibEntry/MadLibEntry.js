@@ -5,9 +5,10 @@ import './MadLibEntry.css'
 import { fetchData } from '../apiCalls';
 import { cleanData } from '../util'
 import PropTypes from 'prop-types';
+import Error from "../Error/Error";
 
 
-const MadLibEntry = ({ addToFavorites }) => {
+const MadLibEntry = ({ addToFavorites, triggerError }) => {
   
   const [ madLib, setMadLib ] = useState({
     id: "",
@@ -33,6 +34,7 @@ const MadLibEntry = ({ addToFavorites }) => {
     })
     .catch(response => {
       console.log(response.status)
+      triggerError()
     }) 
     
   }
@@ -75,5 +77,6 @@ const MadLibEntry = ({ addToFavorites }) => {
 export default MadLibEntry
 
 MadLibEntry.propTypes = {
-  addToFavorites: PropTypes.func.isRequired
+  addToFavorites: PropTypes.func.isRequired,
+  triggerError: PropTypes.func.isRequired
 }

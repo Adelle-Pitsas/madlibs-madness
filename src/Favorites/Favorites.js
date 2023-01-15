@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
 import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
 import { fetchFavorites, deleteFavorite } from '../apiCalls';
+import Error from "../Error/Error";
 
 
-const Favorites = () => {
+const Favorites = ({ triggerError }) => {
 
-  const [favorites, setFavorites] = useState([])
+  const [ favorites, setFavorites ] = useState([])
 
   const removeFavorite = (id) => {
     deleteFavorite(id)
-    .then(data => setFavorites(data))
+    .then(data => {
+      setFavorites(data)
+    })
+    .catch(response => {
+      console.log(response.status)
+      triggerError()
+    }) 
   }
 
 
@@ -19,6 +26,10 @@ const Favorites = () => {
      console.log(data)
      setFavorites(data)
     })
+    .catch(response => {
+      console.log(response.status)
+      triggerError()
+    }) 
   }, [])
 
   
