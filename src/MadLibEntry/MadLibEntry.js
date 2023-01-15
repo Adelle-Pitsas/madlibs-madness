@@ -5,7 +5,6 @@ import './MadLibEntry.css'
 import { fetchData } from '../apiCalls';
 import { cleanData } from '../util'
 import PropTypes from 'prop-types';
-import Error from "../Error/Error";
 
 
 const MadLibEntry = ({ addToFavorites, triggerError }) => {

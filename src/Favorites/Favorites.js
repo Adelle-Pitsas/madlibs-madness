@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
 import { fetchFavorites, deleteFavorite } from '../apiCalls';
-import Error from "../Error/Error";
 
 
 const Favorites = ({ triggerError }) => {
