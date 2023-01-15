@@ -61,6 +61,31 @@ describe('play view', () => {
     })
   })
 
+  it('should allow the user to see that favorited madlib in their favorites page', () => {
+    cy.get('input').eq(0).type("stars")
+    cy.get('.submit-word-btn').eq(0).click()
+    cy.get('input').eq(1).type("flying")
+    cy.get('.submit-word-btn').eq(0).click()
+    cy.get('.submit').click()
+    cy.intercept('POST', 'http://localhost:3001/madlibs/favorites', {
+      body: {
+        quote: "The way to get stars is to quit talking and begin flying",
+        isFavorited: true
+      }
+    })
+    cy.get('.result-container').should('contain', 'The way to get stars is to quit talking and begin flying')
+    .within(() => {
+      cy.get('.unfavorited').click()
+    })
+    cy.intercept('http://localhost:3001/madlibs/favorites', {
+      method: "GET",
+      fixture: '../fixtures/singleFavorite.json'
+    })
+    cy.get('.nav-button').click()
+    cy.get('.fav-card').should('exist')
+    .and('contain', "The way to get stars is to quit talking and begin flying")
+  })
+
   it('should allow a user to display a new madlib form', () => {
     cy.intercept('http://localhost:3001/madlibs', {
       method: "GET",
