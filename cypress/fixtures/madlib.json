@@ -1,0 +1,12 @@
+{
+  "madlibs": [
+    {
+      "id": 1,
+      "quote": "'The way to get started is to quit talking and begin doing.' -Walt Disney",
+      "parsedQuote":"The way to get pluralNoun is to quit talking and begin ingVerb",
+      "wordsNeeded": ["pluralNoun", "ingVerb"],
+      "partsOfSpeech": ["Plural noun", "Verb ending in '-ing'"]
+    }
+  ]
+}
+
