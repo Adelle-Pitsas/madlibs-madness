@@ -1,14 +1,15 @@
 import React from "react";
 import FavCard from "../FavCard/FavCard";
+import PropTypes from 'prop-types';
 import './FavoriteContainer.css'
 
 
 const FavoriteContainer = ({ favorites, removeFavorite }) => {
-  console.log(favorites)
+  
   const favoriteCards = favorites.map((favorite, index) => {
     return (
       <FavCard 
-        madlib={favorite.quote}
+        userMadlib={favorite.quote}
         favorited={favorite.isFavorited}
         removeFavorite={removeFavorite}
         key={favorite.id}
@@ -25,3 +26,8 @@ const FavoriteContainer = ({ favorites, removeFavorite }) => {
 }
 
 export default FavoriteContainer
+
+FavoriteContainer.propTypes = {
+  favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  removeFavorite: PropTypes.func.isRequired
+}

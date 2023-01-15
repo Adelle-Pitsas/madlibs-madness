@@ -3,3 +3,31 @@
   flex-direction: column;
   align-items: center;
 }
+
+.new-madlib-button {
+  background-color: #814cad;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 9px;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.new-madlib-button:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.new-madlib-button:active {
+  transform: matrix(0.95, 0, 0, 0.95, 0, 0)
+}
+
+.new-madlib-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3%;
+}

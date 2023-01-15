@@ -1,6 +1,7 @@
 import React from "react";
 import './MadLibResult.css';
-// import '../Smile/Smile.css'
+import PropTypes from 'prop-types';
+
 import { FaSmileBeam } from 'react-icons/fa'
 
 const MadLibResult = ({ result, favoriteResult }) => {
@@ -18,3 +19,11 @@ const MadLibResult = ({ result, favoriteResult }) => {
 }
 
 export default MadLibResult
+
+MadLibResult.propTypes = {
+  result: PropTypes.shape({
+    result: PropTypes.string,
+    isFavorited: PropTypes.bool
+  }).isRequired,
+  favoriteResult: PropTypes.func.isRequired
+}
