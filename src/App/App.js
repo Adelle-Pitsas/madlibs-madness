@@ -45,6 +45,10 @@ const [error, setError ] = useState(false)
         <h1>Mobile MadLibs</h1>
         <div className='nav-button-area'>{pathname !== '/' ? displayNavButton : null}</div>
       </header>
+      {pathname === "/" && 
+        <div className='secondary-banner'>
+          <h3>Click 'Play' to put your own spin on the same old overused famous quotes</h3>
+        </div>}
       {error && <Error dismissError={dismissError}/>}
       <Routes>
         <Route path='/' element={<Options />}

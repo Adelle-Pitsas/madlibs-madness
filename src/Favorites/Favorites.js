@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
+import PropTypes from 'prop-types';
 import { fetchFavorites, deleteFavorite } from '../apiCalls';
 
 
@@ -40,3 +41,7 @@ const Favorites = ({ triggerError }) => {
 }
 
 export default Favorites
+
+Favorites.propTypes = {
+  triggerError: PropTypes.func.isRequired
+}

@@ -46,6 +46,12 @@ h1 {
   transform: matrix(0.95, 0, 0, 0.95, 0, 0)
 }
 
+.secondary-banner {
+  width: 100vw;
+  background-color: white;
+  margin-top: 2%;
+}
+
 @media screen and (max-width: 730px) {
   .header {
     flex-direction: column;

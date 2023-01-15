@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 import './Error.css'
 
 const Error = ({ dismissError }) => {
+
   return (
     <div className="overlay">
       <div className="error-container">
