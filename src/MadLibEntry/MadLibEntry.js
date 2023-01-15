@@ -7,7 +7,7 @@ import { cleanData } from '../util'
 import PropTypes from 'prop-types';
 
 
-const MadLibEntry = ({ addToFavorites }) => {
+const MadLibEntry = ({ addToFavorites, triggerError }) => {
   
   const [ madLib, setMadLib ] = useState({
     id: "",
@@ -33,6 +33,7 @@ const MadLibEntry = ({ addToFavorites }) => {
     })
     .catch(response => {
       console.log(response.status)
+      triggerError()
     }) 
     
   }
@@ -75,5 +76,6 @@ const MadLibEntry = ({ addToFavorites }) => {
 export default MadLibEntry
 
 MadLibEntry.propTypes = {
-  addToFavorites: PropTypes.func.isRequired
+  addToFavorites: PropTypes.func.isRequired,
+  triggerError: PropTypes.func.isRequired
 }

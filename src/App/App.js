@@ -5,13 +5,33 @@ import { fetchData, postData, fetchFavorites } from '../apiCalls';
 import MadLibEntry from '../MadLibEntry/MadLibEntry';
 import Options from '../Options/Options';
 import Favorites from '../Favorites/Favorites';
+import PageNotFound from '../PageNotFound/PageNotFound'
+import Error from '../Error/Error';
 
 
 function App() {
 
+const [error, setError ] = useState(false)
+
   const addToFavorites = (madLib) => {
     console.log('posting data...')
     postData(madLib)
+    .then(data => {
+      console.log(data)
+      setError(false)
+    })
+    .catch(response => {
+      console.log(response)
+      triggerError()
+    })
+  }
+
+  const triggerError = () => {
+    setError(true)
+  }
+
+  const dismissError = () => {
+    setError(false)
   }
 
   const { pathname } = useLocation()
@@ -25,11 +45,17 @@ function App() {
         <h1>Mobile MadLibs</h1>
         <div className='nav-button-area'>{pathname !== '/' ? displayNavButton : null}</div>
       </header>
+      {pathname === "/" && 
+        <div className='secondary-banner'>
+          <h3>Click 'Play' to put your own spin on the same old overused famous quotes</h3>
+        </div>}
+      {error && <Error dismissError={dismissError}/>}
       <Routes>
         <Route path='/' element={<Options />}
         />
-        <Route path='/play' element={<MadLibEntry addToFavorites={addToFavorites}/>} />
-        <Route path='/favorites' element={<Favorites />} />
+        <Route path='/play' element={<MadLibEntry addToFavorites={addToFavorites} triggerError={triggerError}/>} />
+        <Route path='/favorites' element={<Favorites triggerError={triggerError}/>} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   )

@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
 import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
+import PropTypes from 'prop-types';
 import { fetchFavorites, deleteFavorite } from '../apiCalls';
 
 
-const Favorites = () => {
+const Favorites = ({ triggerError }) => {
 
-  const [favorites, setFavorites] = useState([])
+  const [ favorites, setFavorites ] = useState([])
 
   const removeFavorite = (id) => {
     deleteFavorite(id)
-    .then(data => setFavorites(data))
+    .then(data => {
+      setFavorites(data)
+    })
+    .catch(response => {
+      console.log(response.status)
+      triggerError()
+    }) 
   }
 
 
@@ -19,6 +26,10 @@ const Favorites = () => {
      console.log(data)
      setFavorites(data)
     })
+    .catch(response => {
+      console.log(response.status)
+      triggerError()
+    }) 
   }, [])
 
   
@@ -30,3 +41,7 @@ const Favorites = () => {
 }
 
 export default Favorites
+
+Favorites.propTypes = {
+  triggerError: PropTypes.func.isRequired
+}

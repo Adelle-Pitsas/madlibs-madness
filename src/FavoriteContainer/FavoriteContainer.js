@@ -20,6 +20,7 @@ const FavoriteContainer = ({ favorites, removeFavorite }) => {
 
   return (
     <div className="card-container">
+      {favorites.length === 0 && <h2>You don't have any favorites. Go play and favorite some mad libs!</h2>}
       {favoriteCards}
     </div>
   )
