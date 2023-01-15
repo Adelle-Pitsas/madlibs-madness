@@ -5,6 +5,7 @@ import { fetchData, postData, fetchFavorites } from '../apiCalls';
 import MadLibEntry from '../MadLibEntry/MadLibEntry';
 import Options from '../Options/Options';
 import Favorites from '../Favorites/Favorites';
+import PageNotFound from '../PageNotFound/PageNotFound'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         />
         <Route path='/play' element={<MadLibEntry addToFavorites={addToFavorites}/>} />
         <Route path='/favorites' element={<Favorites />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   )
