@@ -1,8 +1,9 @@
 <h1 align="center"> MadLibs Madness </h1>
-<h3 align="center">Contributors: [Adelle Pitsas](https://github.com/Adelle-Pitsas)</h3>
-<h4 align="center">Deployed link: [MadLibs Madness](https://mobile-madlibs.vercel.app/)</h4>
 
 Bored at dinner parties? Want to entertain your kids on a long car ride? Enter MadLibs madness, where you can put your own spin on the same old overused famous quotes. Why say, "You only live once, but if you do it right, once is enough", when you could say "You only devour a pizza once, but if you do it swimmingly, once is enough"? Think its funny and want to save it to show your friends? Save your best madLibs and view them in your favorites section and keep playing!
+
+Contributors: [Adelle Pitsas](https://github.com/Adelle-Pitsas)
+Deployed link: [MadLibs Madness](https://mobile-madlibs.vercel.app/)
 
 
 ## Built With
@@ -17,7 +18,7 @@ Bored at dinner parties? Want to entertain your kids on a long car ride? Enter M
 This project was created with React that uses a lightweight Express.js backend [https://github.com/Adelle-Pitsas/madlibs-api] and tests end-to-end with Cypress. The user can play madlibs by entering words as they are prompted in the `Play` view, and then see the result of their mystery madlib when you submit all of their words. The user can then favorite a madlib and see it in their favorites view. If they want to play again, they can simply made a new madlib and continue the fun. This app uses GET, POST, and DELETE network requests.
 
 ## The App
-
+[Madlibs Madness.webm](https://user-images.githubusercontent.com/108096652/212780421-b8c773eb-c79e-45d9-b1a8-2e93ee526ca7.webm)
 
 ### Context
 This project is a solo project completed in January 2023, about 5 months into a career change into front-end software development. The goals for this project were:
@@ -32,28 +33,28 @@ This project is a solo project completed in January 2023, about 5 months into a 
 ### Installation
 1. Fork this Repo
 1. Clone it down to your machine
-1. cd into the root of th eproject directory
+1. cd into the root of the project directory
 1. Run npm install
 1. Run npm start and you will see a line similar to: `Project is running at http://localhost:8080/`
-1. Go to `http://localhost:8080/` in your browser to see the client side running
-1. For the functionality to run correctly, follow steps 2 - 5 for this local api server: https://github.com/turingschool-examples/travel-tracker-api . Make sure to clone outside of the Whistledown Inn directory. Run this server in a seperate tab of your terminal.  
+1. Go to `http://localhost:8080/` in your browser to see the local client side running
 1. Enter ctrl + c anytime to stop either of the servers.
 
 ## Wins and Challenges
 #### Wins:
-- Learned some cool CSS to increase my UI (overlays, popups, dropdowns, animations)
-- I had some fun planning the class logic and deciding where pieces of the logic puzzle should go
-- Nitpicking user actions for seamless user interactions
-- Successful (and relatively painless) `get` and `post` requests
-- Fixing, making note of, and solving bugs as they came up
+- Created an Express.js server to hold all madlibs and favorites. I was able to arcitect a backend that met exactly what my front-end needed. It really helped to shed light on how backend and frontend work synchronously.
+- Successfully used GET, POST, and DELETE and successfully stubbed all of them
+- Had a few laughs with some absurd madlibs as I was testing my data!
 
 #### Challenges:
-- Formatting the background picture
-- More than just a smidge of self-doubt about how I approached certain problems. I enjoy solo projects, but I love the more realistic group collaboration/mentor-question-asking environments more!
+- Keeping track of state with a dynamically created form that spanned multiple components. After lots of consideration, this was the most viable arcitecture, and it proved to be a challenge, but it was a huge peice of my learning with this project
+- Wanting to create more functionality but having to hold back due to time contraints. This will be a project that I continue to work on!
 
+## Features to add/improve:
+- Adding a "make your own madlib" where users can enter a quote and what words they want to replace.
+- Adding a parts of speech section for children who are learning parts of speech
+- Improving the form area for a better user experience, and less button pressing
 
 ## About the people
-
 ### Contributors
 Adelle Pitsas - apitsas4@gmail.com - [LinkedIn](https://www.linkedin.com/in/adelle-pitsas-461503183/) - [GitHub](https://github.com/Adelle-Pitsas)
 
