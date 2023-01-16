@@ -11,6 +11,7 @@ const Favorites = ({ triggerError }) => {
   const removeFavorite = (id) => {
     deleteFavorite(id)
     .then(data => {
+      console.log(data)
       setFavorites(data)
     })
     .catch(response => {
