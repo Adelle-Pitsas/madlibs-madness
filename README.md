@@ -1,5 +1,5 @@
 <h1 align="center"> MadLibs Madness </h1>
-<h3> align="center">Contributors: [Adelle Pitsas](https://github.com/Adelle-Pitsas)</h3>
+<h3 align="center">Contributors: [Adelle Pitsas](https://github.com/Adelle-Pitsas)</h3>
 <h4 align="center">Deployed link: [MadLibs Madness](https://mobile-madlibs.vercel.app/)</h4>
 
 Bored at dinner parties? Want to entertain your kids on a long car ride? Enter MadLibs madness, where you can put your own spin on the same old overused famous quotes. Why say, "You only live once, but if you do it right, once is enough", when you could say "You only devour a pizza once, but if you do it swimmingly, once is enough"? Think its funny and want to save it to show your friends? Save your best madLibs and view them in your favorites section and keep playing!
