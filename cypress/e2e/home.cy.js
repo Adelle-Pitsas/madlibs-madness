@@ -4,7 +4,7 @@ describe('homepage view', () => {
   })
 
   it('should display the headers and instructions', () => {
-    cy.get('.header').should('contain', "Mobile MadLibs")
+    cy.get('.header').should('contain', "MadLibs Madness")
     cy.get('.secondary-banner').should('contain', "Click 'Play' to put your own spin on the same old overused famous quotes")
   })
 

@@ -12,13 +12,13 @@ return (
     <Link to='/play' className='play-link option'>
       <div>
         <img className="play-image" src={play}/>
-        <h3>Play!</h3>
+        <h3 className="option-title">Play!</h3>
       </div>
     </Link>
     <Link to='/favorites' className='favorites-link option'>
       <div>
         <img className="fav-image" src={smile}/>
-        <h3>Favorites</h3>
+        <h3 className="option-title">Favorites</h3>
       </div>
     </Link>
   </div>
