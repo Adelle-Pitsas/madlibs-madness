@@ -35,7 +35,7 @@ const Input = ({ placeholder, wordNeeded, handleWord}) => {
         value={userInput}
         onChange={(event) => updateState(event)}
       />
-      {userError && <p className="input-error">Please enter your word</p>}
+      {userError && <p className="input-error">Please enter<br/> your word</p>}
        {!submit && <button className="submit-word-btn" name={wordNeeded} onClick={(event) => {submitWord(event)}}>Submit Word</button>}
     </div>
   )
