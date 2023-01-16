@@ -1,6 +1,6 @@
 
 export const fetchData = async () => {
-  const response = await fetch('http://localhost:3001/madlibs')
+  const response = await fetch('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs')
   if(response.status > 400) {
     throw response
   }
@@ -8,7 +8,7 @@ export const fetchData = async () => {
 }
 
 export const postData = async (madLib) => {
-  const response = await fetch('http://localhost:3001/madlibs/favorites',
+  const response = await fetch('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites',
     {
       method: 'POST',
       body: JSON.stringify({quote: madLib.result, isFavorited: madLib.isFavorited}),
@@ -23,7 +23,7 @@ export const postData = async (madLib) => {
 }
 
 export const fetchFavorites = async () => {
-  const response = await fetch('http://localhost:3001/madlibs/favorites')
+  const response = await fetch('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites')
   if(response > 400) {
     throw response
   }
@@ -31,7 +31,7 @@ export const fetchFavorites = async () => {
 }
 
 export const deleteFavorite = async (id) => {
-  const response = await fetch(`http://localhost:3001/madlibs/favorites/${id}`,
+  const response = await fetch(`https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites/${id}`,
   {
     method: 'DELETE'
   })
