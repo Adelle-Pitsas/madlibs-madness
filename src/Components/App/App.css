@@ -12,7 +12,7 @@
 .header {
   height: 25%;
   width: 100vw;
-  background-color: #21A0A0;
+  background-color: #21a0a0b0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -51,9 +51,13 @@ h1 {
 }
 
 .secondary-banner {
-  width: 100vw;
+  width: 60vw;
   background-color: white;
+  border-radius: 15px;
+  border: 2px solid black;
   margin-top: 2%;
+  margin-bottom: 3%;
+  box-shadow: 1px 3px 3px rgb(0 0 0 / 20%), -1px -1px 4px rgb(0 0 0 / 20%);
 }
 
 @media screen and (max-width: 730px) {

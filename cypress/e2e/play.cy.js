@@ -9,7 +9,7 @@ describe('play view', () => {
 
   })
   it('should display the header with the title and navigation button', () => {
-    cy.get('.header').should('contain', 'Mobile MadLibs')
+    cy.get('.header').should('contain', 'MadLibs Madness')
     .within(() => {
       cy.get('.nav-button').should('contain', "See Favorites")
     })

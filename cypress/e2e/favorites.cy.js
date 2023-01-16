@@ -10,7 +10,7 @@ describe('The favorites view', () => {
 
 
   it('should display the header and nav button', () => {
-    cy.get('.header').should('contain', "Mobile MadLibs").within(() => {
+    cy.get('.header').should('contain', "MadLibs Madness").within(() => {
       cy.get('.nav-button').should('contain', "Home")
     })
   })

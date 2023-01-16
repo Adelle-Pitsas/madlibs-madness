@@ -1,7 +1,7 @@
 .home-page-options {
   display: flex;
   width: 90vw;
-  height: 90vh;
+  height: 60vh;
   justify-content: space-around;
   align-items: center;
 }
@@ -22,6 +22,10 @@
   justify-content: space-evenly;
 }
 
+.option-title {
+  font-size: 24px;
+}
+
 .option:hover {
   transform: scale(1.1);
 }
@@ -29,15 +33,17 @@
 .play-link {
   background-color: white;
   white-space: normal;
+  height: fit-content;
 }
 
 .favorites-link {
   background-color: #f0b900;
+  height: fit-content;
 }
 
 .play-image,
 .fav-image {
-  width: 100%;
+  width: 50%;
   border-radius: 15px 15px 0 0
 }
 

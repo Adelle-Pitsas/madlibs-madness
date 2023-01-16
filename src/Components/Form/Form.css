@@ -62,7 +62,7 @@
   }
 }
 
-@media screen and (max-height: 750px) {
+@media screen and (max-height: 700px) {
   .mad-lib-entry {
     width: 100vw;
     height: 390px;

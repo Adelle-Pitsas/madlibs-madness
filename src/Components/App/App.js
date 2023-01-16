@@ -41,13 +41,9 @@ const [error, setError ] = useState(false)
   return (
     <div className="App">
       <header className='header'>
-        <h1>Mobile MadLibs</h1>
+        <h1>MadLibs Madness</h1>
         <div className='nav-button-area'>{pathname !== '/' ? displayNavButton : null}</div>
       </header>
-      {pathname === "/" && 
-        <div className='secondary-banner'>
-          <h3>Click 'Play' to put your own spin on the same old overused famous quotes</h3>
-        </div>}
       {error && <Error dismissError={dismissError}/>}
       <Routes>
         <Route path='/' element={<Options />}
@@ -56,6 +52,10 @@ const [error, setError ] = useState(false)
         <Route path='/favorites' element={<Favorites triggerError={triggerError}/>} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      {pathname === "/" && 
+        <div className='secondary-banner'>
+          <h3>Click 'Play' to put your own spin on the same old overused famous quotes</h3>
+        </div>}
     </div>
   )
 }
