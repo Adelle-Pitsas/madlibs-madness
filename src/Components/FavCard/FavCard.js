@@ -1,8 +1,10 @@
 import React from "react";
-import '../Smile/Smile.css'
-import './FavCard.css'
 import PropTypes from 'prop-types';
-import { FaSmileBeam } from 'react-icons/fa'
+
+import { FaSmileBeam } from 'react-icons/fa';
+
+import '../Smile/Smile.css';
+import './FavCard.css';
 
 
 const FavCard = ({ userMadlib, favorited, removeFavorite, id }) => {

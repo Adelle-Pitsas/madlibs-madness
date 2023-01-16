@@ -1,23 +1,22 @@
-import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { fetchData, postData, fetchFavorites } from '../apiCalls';
+import { postData } from '../../apiCalls';
+
 import MadLibEntry from '../MadLibEntry/MadLibEntry';
 import Options from '../Options/Options';
 import Favorites from '../Favorites/Favorites';
-import PageNotFound from '../PageNotFound/PageNotFound'
+import PageNotFound from '../PageNotFound/PageNotFound';
 import Error from '../Error/Error';
 
+import './App.css';
 
 function App() {
 
 const [error, setError ] = useState(false)
 
   const addToFavorites = (madLib) => {
-    console.log('posting data...')
     postData(madLib)
     .then(data => {
-      console.log(data)
       setError(false)
     })
     .catch(response => {

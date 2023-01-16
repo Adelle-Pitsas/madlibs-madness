@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+* {
+  font-family: 'Jost', sans-serif;
+}
+
 .header {
   height: 25%;
   width: 100vw;
@@ -17,8 +21,9 @@
 h1 {
   margin-left: 12%;
   width: 80%;
-  padding: 1%;
+  /* padding: 1%; */
   left: 55%;
+  font-size: 45px;
 }
 
 .nav-button-area {

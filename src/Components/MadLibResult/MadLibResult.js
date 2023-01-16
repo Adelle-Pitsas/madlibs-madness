@@ -1,8 +1,9 @@
 import React from "react";
-import './MadLibResult.css';
 import PropTypes from 'prop-types';
 
-import { FaSmileBeam } from 'react-icons/fa'
+import { FaSmileBeam } from 'react-icons/fa';
+
+import './MadLibResult.css';
 
 const MadLibResult = ({ result, favoriteResult }) => {
 
