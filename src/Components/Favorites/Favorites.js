@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
 import PropTypes from 'prop-types';
-import { fetchFavorites, deleteFavorite } from '../apiCalls';
+import { fetchFavorites, deleteFavorite } from '../../apiCalls';
+
+import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
 
 
 const Favorites = ({ triggerError }) => {
@@ -11,7 +12,6 @@ const Favorites = ({ triggerError }) => {
   const removeFavorite = (id) => {
     deleteFavorite(id)
     .then(data => {
-      console.log(data)
       setFavorites(data)
     })
     .catch(response => {
@@ -24,7 +24,6 @@ const Favorites = ({ triggerError }) => {
   useEffect(() => {
     fetchFavorites()
     .then((data) => {
-     console.log(data)
      setFavorites(data)
     })
     .catch(response => {

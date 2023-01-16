@@ -1,13 +1,11 @@
-import React, { Component, useState, useEffect } from "react";
-import Input from "../Input/Input";
+import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 
+import Input from "../Input/Input";
 
-import './Form.css'
+import './Form.css';
 
 const Form = ({ wordsNeeded, partsOfSpeech, getResult }) => {
-
-  console.log(partsOfSpeech)
 
   const [userInputs, setUserInputs] = useState({})
   const [readyToSubmit, setReadyToSubmit ] = useState(false)

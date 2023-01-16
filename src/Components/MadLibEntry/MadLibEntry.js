@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Form from "../Form/Form"
-import MadLibResult from "../MadLibResult/MadLibResult";
-import './MadLibEntry.css'
-import { fetchData } from '../apiCalls';
-import { cleanData } from '../util'
 import PropTypes from 'prop-types';
+import { fetchData } from '../../apiCalls';
+import { cleanData } from '../../util';
 
+import Form from "../Form/Form";
+import MadLibResult from "../MadLibResult/MadLibResult";
+
+import './MadLibEntry.css';
 
 const MadLibEntry = ({ addToFavorites, triggerError }) => {
   
@@ -25,7 +26,6 @@ const MadLibEntry = ({ addToFavorites, triggerError }) => {
   }, [])
 
   const getNewMadLib = () => {
-    console.log(result)
     fetchData()
     .then(data => {
       setMadLib(cleanData(data))
@@ -45,11 +45,9 @@ const MadLibEntry = ({ addToFavorites, triggerError }) => {
   const getResult = (userInputs) => {
     const keys = Object.keys(userInputs)
     let str = madLib.parsedQuote
-    console.log(str)
     keys.forEach(key => {
       str = str.replaceAll(key, userInputs[key])
     })
-    console.log(str)
     setResult({result: str, isFavorited: false})
     updateDisplay()
   }

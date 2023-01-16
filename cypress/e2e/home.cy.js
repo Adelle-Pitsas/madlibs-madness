@@ -20,7 +20,7 @@ describe('homepage view', () => {
   })
 
   it('should allow user to click on the play option and see the play view', () => {
-    cy.intercept('http://localhost:3001/madlibs', {
+    cy.intercept('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs', {
       method: "GET",
       fixture: '../fixtures/madlib.json'
     })
@@ -29,7 +29,7 @@ describe('homepage view', () => {
   })
 
   it('should allow user to click on the favorites option and see the favorites view', () => {
-    cy.intercept('http://localhost:3001/madlibs/favorites', {
+    cy.intercept('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites', {
       method: "GET",
       fixture: '../fixtures/favorites.json'
     })

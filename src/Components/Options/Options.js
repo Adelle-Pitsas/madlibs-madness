@@ -1,9 +1,10 @@
-import React from "react"
-import './Options.css'
-import { Link } from "react-router-dom"
-import play from '../images/play-icon.png'
-import smile from '../images/favorite-icon.png'
+import React from "react";
+import { Link } from "react-router-dom";
 
+import play from '../../images/play-icon.png';
+import smile from '../../images/favorite-icon.png';
+
+import './Options.css';
 
 const Options = () => {
 return (

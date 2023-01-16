@@ -1,12 +1,13 @@
 import React from "react";
 import FavCard from "../FavCard/FavCard";
 import PropTypes from 'prop-types';
+
 import './FavoriteContainer.css'
 
 
 const FavoriteContainer = ({ favorites, removeFavorite }) => {
   
-  const favoriteCards = favorites.map((favorite, index) => {
+  const favoriteCards = favorites.map((favorite) => {
     return (
       <FavCard 
         userMadlib={favorite.quote}

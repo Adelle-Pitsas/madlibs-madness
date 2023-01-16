@@ -1,7 +1,7 @@
 describe('play view', () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000")
-    cy.intercept('http://localhost:3001/madlibs', {
+    cy.intercept('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs', {
       method: "GET",
       fixture: '../fixtures/madlib.json'
     })
@@ -47,7 +47,7 @@ describe('play view', () => {
     cy.get('input').eq(1).type("flying")
     cy.get('.submit-word-btn').eq(0).click()
     cy.get('.submit').click()
-    cy.intercept('POST', 'http://localhost:3001/madlibs/favorites', {
+    cy.intercept('POST', 'https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites', {
       body: {
         quote: "The way to get stars is to quit talking and begin flying",
         isFavorited: true
@@ -67,7 +67,7 @@ describe('play view', () => {
     cy.get('input').eq(1).type("flying")
     cy.get('.submit-word-btn').eq(0).click()
     cy.get('.submit').click()
-    cy.intercept('POST', 'http://localhost:3001/madlibs/favorites', {
+    cy.intercept('POST', 'https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites', {
       body: {
         quote: "The way to get stars is to quit talking and begin flying",
         isFavorited: true
@@ -77,7 +77,7 @@ describe('play view', () => {
     .within(() => {
       cy.get('.unfavorited').click()
     })
-    cy.intercept('http://localhost:3001/madlibs/favorites', {
+    cy.intercept('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites', {
       method: "GET",
       fixture: '../fixtures/singleFavorite.json'
     })
@@ -87,7 +87,7 @@ describe('play view', () => {
   })
 
   it('should allow a user to display a new madlib form', () => {
-    cy.intercept('http://localhost:3001/madlibs', {
+    cy.intercept('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs', {
       method: "GET",
       fixture: '../fixtures/anotherMadlib.json'
     })
@@ -105,7 +105,7 @@ describe('A failed GET request for a madlib', () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000")
     cy.intercept(
-      "http://localhost:3001/madlibs",
+      "https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs",
       {
         method: "GET",
       },
@@ -136,7 +136,7 @@ describe('A failed GET request for a madlib', () => {
 describe('A failed POST request for a madlib', () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000")
-    cy.intercept('http://localhost:3001/madlibs', {
+    cy.intercept('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs', {
       method: "GET",
       fixture: '../fixtures/madlib.json'
     })
@@ -147,7 +147,7 @@ describe('A failed POST request for a madlib', () => {
     cy.get('.submit-word-btn').eq(0).click()
     cy.get('.submit').click()
     cy.intercept(
-      "http://localhost:3001/madlibs/favorites",
+      "https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites",
       {
         method: "POST",
       },

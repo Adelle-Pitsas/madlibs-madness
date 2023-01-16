@@ -1,7 +1,7 @@
 describe('The favorites view', () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000")
-    cy.intercept('http://localhost:3001/madlibs/favorites', {
+    cy.intercept('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites', {
       method: "GET",
       fixture: '../fixtures/favorites.json'
     })
@@ -32,7 +32,7 @@ describe('The favorites view', () => {
   it('should allow the user to delete a favorite from the list', () => {
     cy.intercept({
       method: 'DELETE',
-      url: 'http://localhost:3001/madlibs/favorites/1673813079241'}, 
+      url: 'https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites/1673813079241'}, 
       [
         {
         "id": 1673813089855,
@@ -49,7 +49,7 @@ describe('The favorites view', () => {
 describe('An empty favorites view', () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000")
-    cy.intercept('http://localhost:3001/madlibs/favorites', {
+    cy.intercept('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites', {
       method: "GET",
       fixture: '../fixtures/empty.json'
     })
@@ -65,13 +65,13 @@ describe('An empty favorites view', () => {
 describe('A failed DELETE request for favorites', () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000")
-    cy.intercept('http://localhost:3001/madlibs/favorites', {
+    cy.intercept('https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites', {
       method: "GET",
       fixture: '../fixtures/favorites.json'
     })
     cy.get('.favorites-link').click()
     cy.intercept(
-      "http://localhost:3001/madlibs/favorites/1673813079241",
+      "https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites/1673813079241",
       {
         method: "DELETE",
       },
@@ -103,7 +103,7 @@ describe('A failed GET request for favorites', () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000")
     cy.intercept(
-      "http://localhost:3001/madlibs/favorites",
+      "https://madlibs-84a7cm3v0-adelle-pitsas.vercel.app/madlibs/favorites",
       {
         method: "GET",
       },
