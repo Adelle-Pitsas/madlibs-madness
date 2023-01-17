@@ -56,13 +56,21 @@
   .option {
     width: 90%;
     min-width: 200px;
+    height: fit-content;
     height: 45%;
   }
 
   .play-image,
   .fav-image {
-    width: 50%;
-    margin: 20px;
+    width: 30%;
+    margin-top: 10px;
   }
+}
 
+@media screen and (min-width: 450px) and (max-width: 800px) {
+  .play-image,
+  .fav-image {
+    width: 20%;
+    margin-top: 10px;
+  }
 }
